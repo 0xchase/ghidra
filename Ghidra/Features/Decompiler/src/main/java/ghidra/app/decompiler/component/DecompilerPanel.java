@@ -22,6 +22,7 @@ import java.util.*;
 import java.util.List;
 import java.util.function.Supplier;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 

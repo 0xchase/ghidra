@@ -20,8 +20,11 @@ import java.math.BigInteger;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.plaf.ScrollBarUI;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 
 import docking.widgets.SideKickVerticalScrollbar;
+import generic.theme.GColor;
 
 public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 	private JScrollPane scrollPane;
@@ -47,11 +50,26 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 		scrollable.addIndexScrollListener(this);
 		setLayout(new BorderLayout());
 		viewComponent = new ScrollView(comp);
+		
+		UIManager.put("ScrollBar.thumb", new GColor("color.scrollbar.thumb"));
+		UIManager.put("ScrollBar.track", new GColor("color.scrollbar.track"));
+		
+		// thumb, thumbDarkShadow, thumbShadow, thumbHighlight, track
+		
 		scrollPane = new JScrollPane(viewComponent);
 
 		add(scrollPane);
 		viewport = scrollPane.getViewport();
 		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		
+		/*scrollPane.getVerticalScrollBar().setUI(new ScrollBarUI() {
+			protected void configureScrollBarColors() {
+				this.
+			}
+		});*/
+				
+		// viewComponent not visible
+		// scrollPane is the right size
 
 		// This scroll pane does not have the view component track the width. This is to
 		// prevent a text clipping issue caused by the scroll pane not compensating for the
@@ -63,7 +81,8 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 		viewport.setBackground(comp.getBackground());
 		viewport.addChangeListener(e -> viewportStateChanged());
 		viewport.setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
-		this.indexMapper = createIndexMapper();		
+		
+		this.indexMapper = createIndexMapper();
 	}
 
 	/**
@@ -201,7 +220,6 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 		ScrollView(JComponent component) {
 			setLayout(new ScrollViewLayout());
 			add(component);
-
 		}
 
 		@Override
@@ -311,7 +329,7 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 	public void setScrollbarSideKickComponent(JComponent component) {
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 		if (component == null) {
-			scrollPane.setVerticalScrollBar(new JScrollBar());
+			scrollPane.setVerticalScrollBar(createScrollBar());
 		}
 		else {
 			scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -329,5 +347,11 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 	 */
 	public void setWheelScrollingEnabled(boolean enabled) {
 		scrollPane.setWheelScrollingEnabled(enabled);
+	}
+	
+	private JScrollBar createScrollBar() {
+		JScrollBar scrollBar = new JScrollBar();
+				
+		return scrollBar;
 	}
 }

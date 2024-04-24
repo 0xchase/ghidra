@@ -29,6 +29,7 @@ import docking.menu.HorizontalRuleAction;
 import docking.menu.MultiActionDockingAction;
 import docking.tool.ToolConstants;
 import generic.theme.GIcon;
+import generic.theme.GSvgIcon;
 import ghidra.app.CorePluginPackage;
 import ghidra.app.context.NavigatableActionContext;
 import ghidra.app.context.ProgramActionContext;
@@ -67,8 +68,8 @@ import gui.event.MouseBinding;
 public class NextPrevAddressPlugin extends Plugin {
 
 	private static final String HISTORY_MENU_GROUP = "1_Menu_History_Group";
-	private static Icon PREVIOUS_ICON = new GIcon("icon.plugin.navigation.location.previous");
-	private static Icon NEXT_ICON = new GIcon("icon.plugin.navigation.location.next");
+	private static Icon PREVIOUS_ICON = new GSvgIcon("icon.plugin.navigation.location.previous");
+	private static Icon NEXT_ICON = new GSvgIcon("icon.plugin.navigation.location.next");
 
 	private static final String PREVIOUS_ACTION_NAME = "Previous Location in History";
 	private static final String NEXT_ACTION_NAME = "Next Location in History";
