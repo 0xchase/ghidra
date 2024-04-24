@@ -92,6 +92,7 @@ public class FilterTextField extends JPanel {
 		textField.setColumns(columns);
 		textField.setBackground(noFlashBgColor);
 		textField.setForeground(noFlashFgColor);
+		// textField.setBorder(BorderFactory.createLineBorder(new GColor("color.fg")));
 
 		setFocusComponent(component);
 

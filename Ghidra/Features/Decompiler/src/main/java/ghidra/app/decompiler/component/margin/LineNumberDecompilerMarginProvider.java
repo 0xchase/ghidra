@@ -25,6 +25,7 @@ import docking.util.GraphicsUtils;
 import docking.widgets.fieldpanel.LayoutModel;
 import docking.widgets.fieldpanel.listener.IndexMapper;
 import docking.widgets.fieldpanel.listener.LayoutModelListener;
+import generic.theme.GColor;
 import ghidra.app.decompiler.DecompileOptions;
 import ghidra.program.model.listing.Program;
 
@@ -38,7 +39,9 @@ public class LineNumberDecompilerMarginProvider extends JPanel
 	private LayoutModel model;
 
 	public LineNumberDecompilerMarginProvider() {
-		setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 2));
+		setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 4));
+		super.setBackground(new GColor("color.bg.decompiler.margin"));
+		super.setForeground(new GColor("color.fg.decompiler.margin"));
 	}
 
 	@Override

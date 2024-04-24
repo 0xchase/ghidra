@@ -226,6 +226,7 @@ public class GTree extends JPanel implements BusyListener {
 		setLayout(new BorderLayout());
 
 		scrollPane = new JScrollPane(tree);
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
 		mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(scrollPane, BorderLayout.CENTER);

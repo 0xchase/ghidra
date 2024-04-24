@@ -1252,7 +1252,6 @@ public class DefaultGraphDisplay implements GraphDisplay {
 	}
 
 	private void copyActionsToNewGraph(GraphDisplay display) {
-
 		Collection<DockingActionIf> defaultActions = display.getActions();
 		for (DockingActionIf action : addedActions) {
 			if (defaultActions.contains(action)) {

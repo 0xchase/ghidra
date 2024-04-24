@@ -21,7 +21,10 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.BorderFactory;
+
 import docking.widgets.fieldpanel.*;
+import generic.theme.GColor;
 import ghidra.app.plugin.core.functiongraph.FGColorProvider;
 import ghidra.app.plugin.core.functiongraph.mvc.FGController;
 import ghidra.app.plugin.core.functiongraph.mvc.FunctionGraphOptions;
@@ -70,8 +73,13 @@ public class FGVertexListingPanel extends ListingPanel {
 		model.addListener(listener);
 
 		FunctionGraphOptions options = controller.getFunctionGraphOptions();
-		Color color = options.getDefaultVertexBackgroundColor();
-		setTextBackgroundColor(color);
+		// Color color = options.getDefaultVertexBackgroundColor();
+		// setTextBackgroundColor(color);
+		// super.setBorder(BorderFactory.createLineBorder(Color.gray, 5, true));
+		GColor color = new GColor("color.bg.plugin.functiongraph.vertex");
+		super.setBorder(BorderFactory.createLineBorder(color, 5, true));
+		super.setBackground(color);
+		// setTextBackgroundColor(color);
 
 		// Custom colors are in use when the ColorizingService is not installed.
 		FGColorProvider colorProvider = controller.getColorProvider();
@@ -115,10 +123,10 @@ public class FGVertexListingPanel extends ListingPanel {
 	public Dimension getPreferredSize() {
 
 		Dimension preferredSize = super.getPreferredSize();
-		int maxWidth = getFormatManager().getMaxWidth();
-		if (preferredSize.width < maxWidth) {
+		// int maxWidth = getFormatManager().getMaxWidth();
+		/*if (preferredSize.width < maxWidth) {
 			preferredSize.width += 10; // some padding on the end to avoid clipping
-		}
+		}*/
 
 		return preferredSize;
 	}

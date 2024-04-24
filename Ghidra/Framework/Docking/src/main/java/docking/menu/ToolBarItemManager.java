@@ -15,6 +15,7 @@
  */
 package docking.menu;
 
+import java.awt.Color;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -58,6 +59,7 @@ public class ToolBarItemManager implements PropertyChangeListener, ActionListene
 			toolBarButton = createButton(toolBarAction);
 			toolBarButton.setEnabled(toolBarAction.isEnabled());
 		}
+				
 		return toolBarButton;
 	}
 
@@ -66,6 +68,10 @@ public class ToolBarItemManager implements PropertyChangeListener, ActionListene
 		button.addActionListener(this);
 		button.addMouseListener(this);
 		button.setName(action.getName());
+		// button.setBackground(Color.cyan); // Button background color
+		button.setOpaque(false);
+		// button.setBorderPainted(false);
+		button.setContentAreaFilled(false);
 		DockingToolBarUtils.setToolTipText(button, action);
 		return button;
 	}

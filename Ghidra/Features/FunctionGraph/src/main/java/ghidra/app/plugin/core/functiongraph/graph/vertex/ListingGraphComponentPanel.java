@@ -151,6 +151,7 @@ public class ListingGraphComponentPanel extends AbstractGraphComponentPanel {
 		fieldPanel.setCursorOn(false);
 
 		defaultBackgroundColor = listingPanel.getTextBackgroundColor();
+		super.setBorder(BorderFactory.createEmptyBorder());
 
 		listingPanel.setListingHoverHandler(new ListingHoverAdapter());
 		listingPanel.setHoverMode(true);
@@ -161,10 +162,12 @@ public class ListingGraphComponentPanel extends AbstractGraphComponentPanel {
 
 		add(listingPanel, BorderLayout.CENTER);
 
-		Border beveledBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED,
-			new GColor("color.border.bevel.highlight"), new GColor("color.border.bevel.shadow"));
-		setBorder(beveledBorder);
-
+		//Border beveledBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED,
+		//	new GColor("color.border.bevel.highlight"), new GColor("color.border.bevel.shadow"));
+		
+		Border border = BorderFactory.createLineBorder(new GColor("color.bg.plugin.functiongraph.vertex.border"), 2, true);
+		setBorder(border);
+		
 		addKeyListener(new FieldPanelKeyListener());
 
 		genericHeader = new GenericHeader() {
@@ -196,8 +199,8 @@ public class ListingGraphComponentPanel extends AbstractGraphComponentPanel {
 		// the full function graph.
 		setFormat(false);
 
-		add(genericHeader, BorderLayout.NORTH);
-
+		// add(genericHeader, BorderLayout.NORTH);
+		
 		listingPanel.setProgramLocationListener(controller);
 		listingPanel.setProgramSelectionListener(controller);
 	}

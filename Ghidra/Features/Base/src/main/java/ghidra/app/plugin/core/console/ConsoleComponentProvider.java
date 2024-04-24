@@ -184,6 +184,7 @@ public class ConsoleComponentProvider extends ComponentProviderAdapter implement
 
 		scroller = new JScrollPane(textPane);
 		scroller.setPreferredSize(new Dimension(200, 100));
+		scroller.setBorder(BorderFactory.createEmptyBorder());
 
 		component = new JPanel(new BorderLayout(5, 5));
 		component.add(scroller, BorderLayout.CENTER);

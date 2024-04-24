@@ -1,0 +1,35 @@
+ComponentNode.java has the window border settings
+ComponentInfoDialog.java has layout of all the panels and scroll stuff
+StatusBar.java has status bar stuff
+SplitPanel.java has DIVIDER_SIZE and divider background color
+GenericHeader.java has panel header properties
+DockingAction.java has more panel header button stuff
+ToolBarManager.java has global toolbar properties
+MenuBarManager.java for menu bar stuff
+RootNode.java for top level panel stuff
+LineNumberDecompilerMarginProvdier for decompiler line number stuff
+IndexedScrollPane.java for decompiler and listing window border and scroll stuff
+DockableComponent.java should have panel border stuff but doesn't work
+ComponentNode.java for tabs on top vs bottom
+
+CodeViewerProvider.java for buttons over code listing
+
+MarginProvider and OverviewProvider used in CodeViewerProvider
+
+ListingPanel.java has listing panel stuff
+
+ColorizingPlugin and ColorizingServiceProvider
+
+ListingGraphComponentPanel.java for function graph vertex
+FGVertexListingPanel.java for function graph vertex also
+FGVertexRenderer.java for function graph drop shadow
+
+ListingGraphComponentPanel.java and FGVertexListingPanel.java for function graph disassembly stuff
+
+DockableComponent.java for tab background color and misc borders
+
+DefaultGTreeFilterProvider.java for filter box styling
+FilterTextField.java for the text box in filter provider
+ConsoleComponentProvider.java for console border and whatnot
+GTree.java for border around tree stuff
+ProgramTreePanel.java for border around program tree stuff

@@ -303,6 +303,7 @@ class FilterAction extends ToggleDockingAction {
 
 			filterBorderPanel.add(filterPanel, BorderLayout.CENTER);
 			mainPanel.add(filterBorderPanel);
+			
 			return mainPanel;
 		}
 

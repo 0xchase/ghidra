@@ -15,6 +15,7 @@
  */
 package ghidra.app.plugin.core.datamgr;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Point;
 import java.awt.event.MouseEvent;

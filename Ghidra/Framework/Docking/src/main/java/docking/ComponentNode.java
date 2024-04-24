@@ -15,6 +15,7 @@
  */
 package docking;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.*;
 import java.util.*;
@@ -279,7 +280,9 @@ class ComponentNode extends Node {
 
 			top = activeComponents.get(0);
 			comp = top.getComponent();
-			comp.setBorder(BorderFactory.createRaisedBevelBorder());
+			
+			// Border around each window
+			comp.setBorder(BorderFactory.createEmptyBorder());
 
 			installRenameMenu(top, null);
 		}
@@ -297,6 +300,7 @@ class ComponentNode extends Node {
 			tabbedPane.setSelectedComponent(activeComp);
 		}
 		invalid = false;
+		
 		return comp;
 	}
 
@@ -307,7 +311,6 @@ class ComponentNode extends Node {
 		for (int i = 0; i < count; i++) {
 			ComponentPlaceholder placeholder = activeComponents.get(i);
 			DockableComponent c = placeholder.getComponent();
-			c.setBorder(BorderFactory.createEmptyBorder());
 			String title = placeholder.getTitle();
 			String tabText = placeholder.getTabText();
 

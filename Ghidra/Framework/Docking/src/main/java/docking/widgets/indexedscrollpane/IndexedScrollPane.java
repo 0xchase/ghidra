@@ -19,6 +19,7 @@ import java.awt.*;
 import java.math.BigInteger;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import docking.widgets.SideKickVerticalScrollbar;
 
@@ -50,6 +51,7 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 
 		add(scrollPane);
 		viewport = scrollPane.getViewport();
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
 		// This scroll pane does not have the view component track the width. This is to
 		// prevent a text clipping issue caused by the scroll pane not compensating for the
@@ -61,7 +63,7 @@ public class IndexedScrollPane extends JPanel implements IndexScrollListener {
 		viewport.setBackground(comp.getBackground());
 		viewport.addChangeListener(e -> viewportStateChanged());
 		viewport.setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
-		this.indexMapper = createIndexMapper();
+		this.indexMapper = createIndexMapper();		
 	}
 
 	/**

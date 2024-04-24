@@ -83,7 +83,6 @@ class RootNode extends WindowNode {
 		c.setLayout(new BorderLayout());
 
 		childPanel = new JPanel(new BorderLayout());
-		childPanel.setBorder(BorderFactory.createEmptyBorder(3, 0, 0, 0));
 		c.add(childPanel, BorderLayout.CENTER);
 
 		if (mgr.hasStatusBar()) {
@@ -94,7 +93,7 @@ class RootNode extends WindowNode {
 		this.dropTargetFactory = factory;
 		if (dropTargetFactory != null) {
 			rootDropTargetHandler = factory.createDropTargetHandler(getFrame());
-		}
+		}		
 	}
 
 	private JDialog createDialog(String title, DockingFrame frame) {

@@ -21,6 +21,7 @@ import javax.swing.JMenuBar;
 
 import docking.action.DockingActionIf;
 import docking.action.MenuData;
+import generic.theme.GColor;
 
 /**
  * Manages the main menu bar on the main frame
@@ -122,6 +123,7 @@ public class MenuBarManager implements MenuGroupListener {
 		MenuManager helpMenu = menuManagers.get("Help");
 
 		JMenuBar menuBar = new JMenuBar();
+		
 		if (fileMenu != null) {
 			menuBar.add(fileMenu.getMenu());
 		}
@@ -144,7 +146,10 @@ public class MenuBarManager implements MenuGroupListener {
 		if (helpMenu != null) {
 			menuBar.add(helpMenu.getMenu());
 		}
-
+		
+		menuBar.setBackground(new GColor("color.bg.menubar"));
+		menuBar.setBorderPainted(false);
+		menuBar.setOpaque(true);
 		return menuBar;
 	}
 

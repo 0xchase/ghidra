@@ -15,6 +15,7 @@
  */
 package docking.menu;
 
+import java.awt.Color;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -25,6 +26,7 @@ import docking.DockingWindowManager;
 import docking.action.DockingActionIf;
 import docking.action.ToolBarData;
 import docking.widgets.VariableHeightPanel;
+import generic.theme.GColor;
 
 /**
  * Manages the actions to be displayed in the toolbar.  Organizes them by group.
@@ -110,12 +112,14 @@ public class ToolBarManager {
 			localToolBar = buildToolbar();
 			toolBar = localToolBar;
 		}
+						
 		return localToolBar;
 	}
 
 	private JComponent buildToolbar() {
 		JComponent newToolBar = new VariableHeightPanel(true, 0, 0);
 		newToolBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 0));
+		newToolBar.setBackground(new GColor("color.bg.toolbar"));
 
 		boolean isFirstGroup = true;
 		Set<Entry<String, List<ToolBarItemManager>>> entrySet = groupToItemsMap.entrySet();

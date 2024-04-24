@@ -330,6 +330,7 @@ public class ListingPanel extends JPanel implements FieldMouseListener, FieldLoc
 		for (OverviewProvider overviewProvider : overviewProviders) {
 			rightPanel.add(overviewProvider.getComponent());
 		}
+		
 		return rightPanel;
 	}
 

@@ -16,6 +16,7 @@
 package docking.widgets.tree;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.accessibility.AccessibleContext;
 import javax.swing.*;
@@ -29,6 +30,7 @@ import docking.widgets.filter.*;
 import docking.widgets.label.GLabel;
 import docking.widgets.tree.internal.DefaultGTreeDataTransformer;
 import docking.widgets.tree.support.GTreeFilter;
+import generic.theme.GColor;
 import ghidra.framework.options.PreferenceState;
 import ghidra.util.FilterTransformer;
 import ghidra.util.HelpLocation;
@@ -141,7 +143,7 @@ public class DefaultGTreeFilterProvider implements GTreeFilterProvider {
 
 	private JPanel createFilterPanel() {
 		JPanel newFilterPanel = new JPanel(new BorderLayout());
-		newFilterPanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
+		newFilterPanel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
 		JLabel filterLabel = new GLabel(" Filter: ");
 		newFilterPanel.add(filterLabel, BorderLayout.WEST);
 
@@ -174,6 +176,8 @@ public class DefaultGTreeFilterProvider implements GTreeFilterProvider {
 
 		filterStateButton.setToolTipText("Filter Options");
 		newFilterPanel.add(filterStateButton, BorderLayout.EAST);
+		
+		newFilterPanel.setBackground(new GColor("color.bg"));
 		return newFilterPanel;
 	}
 

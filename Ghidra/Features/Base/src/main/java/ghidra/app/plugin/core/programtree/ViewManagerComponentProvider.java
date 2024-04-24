@@ -15,6 +15,7 @@
  */
 package ghidra.app.plugin.core.programtree;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 

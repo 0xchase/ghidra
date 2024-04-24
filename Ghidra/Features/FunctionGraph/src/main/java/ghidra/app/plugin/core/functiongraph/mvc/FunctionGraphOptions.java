@@ -91,7 +91,7 @@ public class FunctionGraphOptions extends VisualGraphOptions {
 
 	//@formatter:off
 	public static final Color DEFAULT_GROUP_BACKGROUND_COLOR = new GColor("color.bg.plugin.functiongraph.vertex.group");
-	private GColor defaultVertexBackgroundColor = new GColor("color.bg.plugin.functiongraph");
+	private GColor defaultVertexBackgroundColor = new GColor("color.bg.plugin.functiongraph.vertex");
 	private GColor defaultGroupBackgroundColor = new GColor("color.bg.plugin.functiongraph.vertex.group");
 
 	private GColor fallthroughEdgeColor = new GColor("color.bg.plugin.functiongraph.edge.fall.through");

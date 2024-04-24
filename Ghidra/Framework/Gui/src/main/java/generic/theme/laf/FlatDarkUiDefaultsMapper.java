@@ -20,7 +20,9 @@ import static generic.theme.SystemThemeIds.*;
 import java.awt.Color;
 
 import javax.swing.UIDefaults;
+import javax.swing.UIManager;
 
+import generic.theme.GColor;
 import ghidra.util.WebColors;
 
 public class FlatDarkUiDefaultsMapper extends FlatUiDefaultsMapper {
@@ -35,8 +37,21 @@ public class FlatDarkUiDefaultsMapper extends FlatUiDefaultsMapper {
 
 		// We don't think the FlatDark LaF's view background (Trees, Tables, Lists) is dark
 		// enough, so we are overriding the view group background and foreground colors
-		setGroupColor(BG_VIEW_ID, new Color(0x1c1d1e));
-		setGroupColor(FG_VIEW_ID, WebColors.LIGHT_GRAY);
+		// setGroupColor(BG_VIEW_ID, new GColor("color.bg"));
+		// setGroupColor(FG_VIEW_ID, new Color(0x0));
+		// setGroupColor(FG_VIEW_ID, WebColors.LIGHT_GRAY);
+		/*UIManager.put("ScrollBar.track", new Color(0x0));
+		UIManager.put("ScrollBar.thumb", new Color(0x0));
+		UIManager.put("ScrollBar.background", new Color(0x0));
+		UIManager.put("Panel.background", new Color(0x0));
+		UIManager.put("SplitPane.background", new Color(0x0));
+		UIManager.put("TabbedPane.selectedBackground", new Color(0x0));
+		UIManager.put("ToolBar.background", new Color(0x0));*/
+		//UIManager.put("ScrollBar.track", new Color(0x0));
+		//UIManager.put("ScrollBar.track", new Color(0x0));
+		//UIManager.put("ScrollBar.track", new Color(0x0));
+		
+		// UIManager.put("TabbedPane.selectedBackground", Color.white );
 	}
 
 	@Override

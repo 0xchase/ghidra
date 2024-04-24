@@ -73,8 +73,10 @@ public class GenericHeader extends JPanel {
 		BorderLayout layout = new BorderLayout();
 		layout.setVgap(1);
 		setLayout(layout);
-		setBorder(BorderFactory.createLineBorder(Palette.GRAY));
+		// setBorder(BorderFactory.createLineBorder(Palette.RED)); // Border around header
 		setFocusable(false);
+		setOpaque(true);
+		super.setBackground(new GColor("color.bg.header.inactive"));
 
 		titlePanel = new TitlePanel();
 
@@ -141,7 +143,9 @@ public class GenericHeader extends JPanel {
 
 		toolbar = (VariableHeightPanel) toolBarMgr.getToolBar();
 		menuCloseToolbar = toolBarMgr.getMenuCloseToolBar();
-		numLines = 0;
+		toolbar.setOpaque(false);
+		menuCloseToolbar.setOpaque(false);
+		numLines = 0;		
 	}
 
 	public void update() {
@@ -188,10 +192,12 @@ public class GenericHeader extends JPanel {
 			toolbar.setBorder(BorderFactory.createEmptyBorder());
 			panel.add(toolbar);
 			panel.add(menuCloseToolbar);
+			panel.setOpaque(false);
 			add(panel, BorderLayout.EAST);
 			toolbar.setUseSingleLineLayout(true);
 			toolbar.invalidate();
 		}
+		
 		add(titlePanel, BorderLayout.CENTER);
 		numLines = 1;
 		validateInvalidate();
@@ -350,6 +356,7 @@ public class GenericHeader extends JPanel {
 			titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 6, 0, 0));
 			titleLabel.setForeground(inactiveForeground);
 			titleLabel.setFocusable(false);
+			
 			add(titleLabel, BorderLayout.CENTER);
 		}
 
@@ -370,20 +377,13 @@ public class GenericHeader extends JPanel {
 			Graphics2D g2d = (Graphics2D) g;
 			Rectangle r = getBounds();
 
-			// use full color from 0 to the gradient start so the title text is painted over the
-			// full color, which makes it a bit more readable
-			int gradientStartOffset = 100;
-			int x = r.x + gradientStartOffset;
-			int y = r.y;
-			GradientPaint gp;
 			if (isSelected) {
-				gp = new GradientPaint(x, y, focusColor, r.x + r.width, r.y, getBackground());
+				g2d.setColor(focusColor);
 			}
 			else {
-				gp = new GradientPaint(x, y, nonFocusColor, r.x + r.width, r.y, getBackground());
+				g2d.setColor(nonFocusColor);
 			}
-
-			g2d.setPaint(gp);
+			
 			g2d.fill(r);
 		}
 
@@ -397,16 +397,16 @@ public class GenericHeader extends JPanel {
 		}
 
 		void setIcon(Icon icon) {
-
 			icon = DockingUtils.scaleIconAsNeeded(icon);
+			
 			if (icon != null) {
 				titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 2, 0, 0));
 			}
 			else {
 				titleLabel.setBorder(BorderFactory.createEmptyBorder(0, 6, 0, 0));
 			}
+			
 			titleLabel.setIcon(icon);
-
 		}
 
 		boolean isSelected() {

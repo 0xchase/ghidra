@@ -126,7 +126,7 @@ public class FieldPanel extends JPanel
 		setDoubleBuffered(false);
 		setFocusable(true);
 
-		hoverHandler = new HoverHandler(this);
+		hoverHandler = new HoverHandler(this);		
 	}
 
 	@Override

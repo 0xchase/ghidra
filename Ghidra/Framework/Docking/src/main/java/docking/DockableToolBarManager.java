@@ -81,7 +81,7 @@ class DockableToolBarManager {
 		// we need to add this action to the tool in order to use key bindings
 		Tool tool = winMgr.getTool();
 		tool.addLocalAction(provider, closeAction);
-		tool.addLocalAction(provider, dropDownAction);
+		tool.addLocalAction(provider, dropDownAction);		
 	}
 
 	private void initialize(DockingWindowManager winMgr, MenuHandler menuHandler,
@@ -118,6 +118,7 @@ class DockableToolBarManager {
 		}
 
 		panel.add(closeButtonManager.getButton());
+		
 		return panel;
 	}
 

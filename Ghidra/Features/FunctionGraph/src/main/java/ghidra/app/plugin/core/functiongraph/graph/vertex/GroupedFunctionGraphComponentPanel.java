@@ -139,10 +139,10 @@ public class GroupedFunctionGraphComponentPanel extends AbstractGraphComponentPa
 		add(genericHeader, BorderLayout.NORTH);
 		add(contentPanel, BorderLayout.CENTER);
 
-		Border beveledBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED,
-			new GColor("color.border.bevel.highlight"), new GColor("color.border.bevel.shadow"));
+		//Border beveledBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED,
+		//	new GColor("color.border.bevel.highlight"), new GColor("color.border.bevel.shadow"));
 
-		setBorder(beveledBorder);
+		//setBorder(beveledBorder);
 
 		createActions();
 		setUserText(userText);

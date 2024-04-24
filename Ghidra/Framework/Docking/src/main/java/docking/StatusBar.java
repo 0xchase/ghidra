@@ -31,6 +31,7 @@ import docking.util.AnimationUtils;
 import docking.widgets.EmptyBorderButton;
 import docking.widgets.label.GDLabel;
 import generic.theme.GThemeDefaults.Colors;
+import generic.theme.GColor;
 import generic.theme.Gui;
 import generic.util.WindowUtilities;
 import ghidra.util.*;
@@ -44,12 +45,12 @@ import ghidra.util.layout.MiddleLayout;
 public class StatusBar extends JPanel {
 
 	private static final Border STATUS_BORDER = BorderFactory.createCompoundBorder(
-		BorderFactory.createLoweredBevelBorder(), BorderFactory.createEmptyBorder(1, 2, 1, 2));
+		BorderFactory.createEmptyBorder(), BorderFactory.createEmptyBorder());
 
 	private static final Border STATUS_ITEM_BORDER = BorderFactory
-			.createCompoundBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0), STATUS_BORDER);
+			.createCompoundBorder(BorderFactory.createEmptyBorder(), STATUS_BORDER);
 
-	private static final int STATUS_BAR_GAP = 3;
+	private static final int STATUS_BAR_GAP = 0;
 	private static final int MESSAGE_QUEUE_MAX_SIZE = 10;
 
 	private Animator animator;
@@ -65,6 +66,9 @@ public class StatusBar extends JPanel {
 	private Timer messageFadeTimer = new FadeTimer();
 	private Timer flashTimer = new FlashTimer();
 	private Timer animationDelayTimer = new AnimationDelayTimer();
+	
+	private static final Color STATUS_COLOR =
+			new GColor("color.bg.statusbar");
 
 	/**
 	 * Construct a status bar with a single status text area.
@@ -77,14 +81,17 @@ public class StatusBar extends JPanel {
 		setBorder(BorderFactory.createEmptyBorder(borderPadding, 0, 0, 0));
 
 		homeButtonPanel = new JPanel(new BorderLayout());
+		homeButtonPanel.setBackground(STATUS_COLOR); // Far left corner color
 		add(homeButtonPanel, BorderLayout.WEST);
 
 		statusAreaPanel = new JPanel(new HorizontalLayout(0));
 		JPanel eastPanel = createEastPanel(statusAreaPanel);
+		eastPanel.setBackground(STATUS_COLOR); // Far right corner color
 		add(eastPanel, BorderLayout.EAST);
 
 		statusLabel = new GDLabel(" ");
 		statusLabel.setOpaque(true);
+		statusLabel.setBackground(STATUS_COLOR); // Empty bar color
 
 		statusLabel.setName("Tool Status");
 		statusLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -97,7 +104,7 @@ public class StatusBar extends JPanel {
 
 		Dimension size = statusLabel.getPreferredSize();
 		int topAndBottomPadding = STATUS_BAR_GAP * 2;
-		minHeight = size.height + borderPadding + topAndBottomPadding;
+		minHeight = size.height + borderPadding + topAndBottomPadding;		
 	}
 
 	/** The east panel contains the status panel and a spacer */
@@ -145,7 +152,9 @@ public class StatusBar extends JPanel {
 	 * if false.
 	 */
 	void addStatusItem(JComponent c, boolean addBorder, boolean rightSide) {
+		c.setBackground(STATUS_COLOR);
 		JPanel p = new StatusPanel(c, addBorder);
+		p.setBackground(STATUS_COLOR);
 		p.setName(c.getName());
 		minHeight = Math.max(minHeight, p.getPreferredSize().height + STATUS_BAR_GAP);
 		if (rightSide) {

@@ -15,6 +15,7 @@
  */
 package docking.action;
 
+import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.Objects;
@@ -276,6 +277,9 @@ public abstract class DockingAction implements DockingActionIf {
 		JButton button = doCreateButton();
 		button.setName(getName());
 		button.setFocusable(false);
+		button.setContentAreaFilled(false);
+		button.setOpaque(false);
+		
 		Icon icon = toolBarData == null ? null : toolBarData.getIcon();
 		if (icon == null) {
 			icon = ResourceManager.getDefaultIcon();

@@ -19,6 +19,7 @@ import static ghidra.framework.model.DomainObjectEvent.*;
 import static ghidra.program.util.ProgramEvent.*;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.ClipboardOwner;
 import java.awt.event.MouseAdapter;

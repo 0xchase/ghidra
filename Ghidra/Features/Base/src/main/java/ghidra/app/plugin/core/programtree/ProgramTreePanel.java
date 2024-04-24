@@ -248,6 +248,7 @@ class ProgramTreePanel extends JPanel implements ChangeListener {
 
 		scrollp = new JScrollPane(tree);
 		scrollp.setPreferredSize(new Dimension(300, 300));
+		scrollp.setBorder(BorderFactory.createEmptyBorder());
 
 		add(scrollp, BorderLayout.CENTER);
 

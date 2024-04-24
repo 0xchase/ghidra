@@ -15,9 +15,11 @@
  */
 package ghidra.framework.main;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.util.LinkedList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JTextPane;
 import javax.swing.text.*;
 
@@ -66,10 +68,12 @@ public class ConsoleTextPane extends JTextPane implements OptionsChangeListener 
 	public ConsoleTextPane(PluginTool tool) {
 		createAttribtues();
 		setEditable(true);
+		
+		super.setBackground(new GColor("color.bg.console"));
 
 		ToolOptions options = tool.getOptions(OPTIONS_NAME);
 		options.addOptionsChangeListener(this);
-		initOptions(options);
+		initOptions(options);		
 	}
 
 	public void setScrollLock(boolean lock) {

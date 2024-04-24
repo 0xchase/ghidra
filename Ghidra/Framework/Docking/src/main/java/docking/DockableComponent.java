@@ -22,6 +22,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import docking.action.DockingActionIf;
+import generic.theme.GColor;
 import ghidra.util.CascadedDropTarget;
 import ghidra.util.HelpLocation;
 import help.HelpService;
@@ -92,7 +93,10 @@ public class DockableComponent extends JPanel implements ContainerListener {
 			providerComp = initializeComponentPlaceholder(placeholder);
 
 			JPanel contentPanel = new JPanel(new BorderLayout());
+			
 			setFocusable(false); // this should never be focusable
+
+			providerComp.setBackground(new GColor("color.bg")); // Set background behind tab
 
 			setFocusCycleRoot(false);
 			contentPanel.add(providerComp, BorderLayout.CENTER);
@@ -100,7 +104,7 @@ public class DockableComponent extends JPanel implements ContainerListener {
 		}
 		else {
 			dockableDropTarget = new DockableComponentDropTarget(this);
-		}
+		}		
 	}
 
 	private JComponent initializeComponentPlaceholder(ComponentPlaceholder newPlaceholder) {

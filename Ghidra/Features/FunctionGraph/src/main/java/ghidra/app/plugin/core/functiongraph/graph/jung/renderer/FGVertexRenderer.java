@@ -15,6 +15,7 @@
  */
 package ghidra.app.plugin.core.functiongraph.graph.jung.renderer;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.util.Set;
@@ -32,7 +33,7 @@ public class FGVertexRenderer extends VisualVertexRenderer<FGVertex, FGEdge> {
 	@Override
 	protected void paintDropShadow(RenderContext<FGVertex, FGEdge> rc, GraphicsDecorator g,
 			Shape shape, FGVertex vertex) {
-
+		
 		Rectangle bounds = shape.getBounds();
 		if (vertex instanceof GroupedFunctionGraphVertex) {
 			// paint depth images offset from main vertex
@@ -50,11 +51,12 @@ public class FGVertexRenderer extends VisualVertexRenderer<FGVertex, FGEdge> {
 				paintBounds.x = originalBounds.x + currentOffset;
 				paintBounds.y = originalBounds.y + currentOffset;
 				currentOffset -= offset;
-				super.paintDropShadow(rc, g, paintBounds);
+
+				//super.paintDropShadow(rc, g, paintBounds);
 			}
 		}
 
-		super.paintDropShadow(rc, g, bounds);
+		//super.paintDropShadow(rc, g, bounds);
 	}
 
 	@Override

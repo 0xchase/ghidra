@@ -15,6 +15,7 @@
  */
 package docking.widgets;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.datatransfer.Clipboard;
@@ -359,7 +360,7 @@ public class ScrollableTextArea extends JScrollPane {
 			if (bar == null) {
 				return 0;
 			}
-
+			
 			return bar.getPreferredSize().width * 2; // double the size (fudge factor)
 		}
 
