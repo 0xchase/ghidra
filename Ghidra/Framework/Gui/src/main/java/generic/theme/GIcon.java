@@ -15,6 +15,7 @@
  */
 package generic.theme;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.net.URL;
@@ -60,6 +61,12 @@ public class GIcon implements Icon {
 	 * @param id the id used to lookup the current value for this icon
 	 */
 	public GIcon(String id) {
+		this.id = id;
+		delegate = Gui.getIcon(id);
+		inUseIcons.add(this);
+	}
+	
+	public GIcon(String id, Color color) {
 		this.id = id;
 		delegate = Gui.getIcon(id);
 		inUseIcons.add(this);

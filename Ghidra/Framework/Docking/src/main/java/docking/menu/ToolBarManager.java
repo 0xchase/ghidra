@@ -117,8 +117,8 @@ public class ToolBarManager {
 	}
 
 	private JComponent buildToolbar() {
-		JComponent newToolBar = new VariableHeightPanel(true, 0, 0);
-		newToolBar.setBorder(BorderFactory.createEmptyBorder(0, 5, 0, 0));
+		JComponent newToolBar = new VariableHeightPanel(true, 2, 0);
+		newToolBar.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		newToolBar.setBackground(new GColor("color.bg.toolbar"));
 
 		boolean isFirstGroup = true;

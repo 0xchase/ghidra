@@ -95,7 +95,7 @@ import resources.ResourceManager;
  * </table>
  */
 public class DockingUtils {
-	private static final int ICON_SIZE = 16;
+	private static final int ICON_SIZE = 18;
 
 	/** System dependent mask for the Ctrl key */
 	public static final int CONTROL_KEY_MODIFIER_MASK =

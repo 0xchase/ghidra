@@ -16,6 +16,7 @@
 package ghidra.app.plugin.core.bookmark;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;

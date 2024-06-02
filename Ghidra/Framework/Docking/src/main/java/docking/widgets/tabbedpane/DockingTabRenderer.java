@@ -81,8 +81,12 @@ public class DockingTabRenderer extends JPanel {
 		iconLabel.addMouseMotionListener(eventForwardingListener);
 		titleLabel.addMouseListener(eventForwardingListener);
 		titleLabel.addMouseMotionListener(eventForwardingListener);
-
+		
 		installMouseForwardingListenerWorkaround(tabbedPane);
+		
+		// UIManager.put("TabbedPane.background", new GColor("color.bg"));
+		// UIManager.put("TabbedPane.selectedBackground", Color.gray);
+		// SwingUtilities.updateComponentTreeUI(tabbedPane);
 	}
 
 	private void installMouseForwardingListenerWorkaround(final JTabbedPane tabbedPane) {

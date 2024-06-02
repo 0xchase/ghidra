@@ -57,6 +57,9 @@ public class DockableComponent extends JPanel implements ContainerListener {
 	 * @param isDocking if true allows components to be dragged and docked.
 	 */
 	DockableComponent(ComponentPlaceholder placeholder, boolean isDocking) {
+		// UIManager.put("TabbedPane.underlineColor", Color.cyan);
+		// UIManager.put("TabbedPane.underlineColor", Color.cyan);
+		
 		if (placeholder != null) {
 			this.placeholder = placeholder;
 
@@ -96,7 +99,7 @@ public class DockableComponent extends JPanel implements ContainerListener {
 			
 			setFocusable(false); // this should never be focusable
 
-			providerComp.setBackground(new GColor("color.bg")); // Set background behind tab
+			// providerComp.setBackground(Color.cyan); // Set background behind tab
 
 			setFocusCycleRoot(false);
 			contentPanel.add(providerComp, BorderLayout.CENTER);
@@ -104,7 +107,7 @@ public class DockableComponent extends JPanel implements ContainerListener {
 		}
 		else {
 			dockableDropTarget = new DockableComponentDropTarget(this);
-		}		
+		}	
 	}
 
 	private JComponent initializeComponentPlaceholder(ComponentPlaceholder newPlaceholder) {

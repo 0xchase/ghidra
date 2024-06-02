@@ -120,7 +120,6 @@ public class BookmarkNavigator {
 				return buffy.toString();
 			}
 		});
-
 	}
 
 	private synchronized void updateMarkerSetAddresses() {
@@ -200,5 +199,4 @@ public class BookmarkNavigator {
 		mgr.defineType(BookmarkType.ERROR, ERROR_ICON, ERROR_COLOR, ERROR_PRIORITY);
 		mgr.defineType(BookmarkType.ANALYSIS, ANALYSIS_ICON, ANALYSIS_COLOR, ANALYSIS_PRIORITY);
 	}
-
 }

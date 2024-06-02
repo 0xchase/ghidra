@@ -15,6 +15,7 @@
  */
 package resources;
 
+import java.awt.Color;
 import java.lang.reflect.Field;
 import java.net.URL;
 
